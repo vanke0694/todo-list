@@ -40,7 +40,7 @@ public class TodoController {
             _todo.setDescription(todo.getDescription());
             _todo.setProgress(todo.getProgress());
 
-            _todo.setLastModifiedDate();
+            //_todo.setLastModifiedDate();
             _todo.setLastModifiedDate(todo.getLastModifiedDate());
 
             return new ResponseEntity<>(service.saveMethod(_todo), HttpStatus.OK);
