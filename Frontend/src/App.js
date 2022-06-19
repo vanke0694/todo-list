@@ -10,7 +10,7 @@ class App extends Component {
   }
 
   getItems(){
-    fetch('http://localhost:8080/todo/get')
+    fetch('http://localhost:8080/todo/get/')
       .then(response => response.json())
       .then(items => this.setState({items}))
       .catch(err => console.log(err))

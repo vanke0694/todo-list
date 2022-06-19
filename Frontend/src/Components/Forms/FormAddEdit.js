@@ -7,8 +7,6 @@ class AddEditForm extends React.Component {
     description: '',
     progress: '',
     title: '',
-    create_date: '',
-    last_modified_date: '',
     todo_date: ''
   }
 
@@ -26,10 +24,8 @@ class AddEditForm extends React.Component {
       body: JSON.stringify({
         description: this.state.description,
         progress: this.state.progress,
-        title: this.state.title,
-        create_date: this.state.create_date,
-        last_modified_date: this.state.last_modified_date,
-        todo_date: this.state.todo_date
+        title: this.state.title,     
+        //todo_date: this.state.todo_date
       })
     })
       .then(response => response.json())
@@ -44,8 +40,13 @@ class AddEditForm extends React.Component {
       .catch(err => console.log(err))
   }
 
+
+
   submitFormEdit = e => {
     e.preventDefault()
+
+    
+      //need ID 
     fetch('http://localhost:8080/todo/update/', {
       method: 'put',
       headers: {
@@ -54,10 +55,8 @@ class AddEditForm extends React.Component {
       body: JSON.stringify({
         description: this.state.description,
         progress: this.state.progress,
-        title: this.state.title,
-        create_date: this.state.create_date,
-        last_modified_date: this.state.last_modified_date,
-        todo_date: this.state.todo_date
+        title: this.state.title,       
+        //todo_date: this.state.todo_date
       })
     })
       .then(response => response.json())
@@ -76,8 +75,8 @@ class AddEditForm extends React.Component {
   componentDidMount(){
     // if item exists, populate the state with proper data
     if(this.props.item){
-      const { id, description, progress, title, create_date, last_modified_date, todo_date } = this.props.item
-      this.setState({ id, description, progress, title, create_date, last_modified_date, todo_date })
+      const { id, description, progress, title } = this.props.item
+      this.setState({ id, description, progress, title })
     }
   }
 
@@ -95,20 +94,14 @@ class AddEditForm extends React.Component {
         <FormGroup>
           <Label for="title">Title</Label>
           <Input type="text" name="title" id="title" onChange={this.onChange} value={this.state.title === null ? '' : this.state.title}  />
-        </FormGroup>
-        <FormGroup>
-          <Label for="create_date">Create Date</Label>
-          <Input type="date" name="create_date" id="create_date" onChange={this.onChange} value={this.state.create_date === null ? '' : this.state.create_date}   />
-        </FormGroup>
-        <FormGroup>
-          <Label for="last_modified_date">Last Modified Date</Label>
-          <Input type="date" name="last_modified_date" id="last_modified_date" onChange={this.onChange} value={this.state.last_modified_date === null ? '' : this.state.last_modified_date}   />
-        </FormGroup>
-        <FormGroup>
+        </FormGroup>       
+        {/* <FormGroup>
           <Label for="todo_date">Todo Date</Label>
           <Input type="date" name="todo_date" id="todo_date" onChange={this.onChange} value={this.state.todo_date}  />
-        </FormGroup>
-        <Button>Submit</Button>
+        </FormGroup> */}
+        <Button
+         color="success"
+         >Submit</Button>
       </Form>
     );
   }

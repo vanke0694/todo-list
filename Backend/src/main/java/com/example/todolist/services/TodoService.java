@@ -43,8 +43,8 @@ public class TodoService {
         return todoRepository.findAll();
     }
 
-    public List<Todo> findByTitleContaining(String title){
-        return todoRepository.findByTitleContaining(title);
-    }
+//    public List<Todo> findByTitleContaining(String title){
+//        return todoRepository.findByTitleContaining(title);
+//    }
 }
 

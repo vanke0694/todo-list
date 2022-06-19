@@ -41,6 +41,7 @@ public class Todo {
         this.title = title;
         this.description=description;
         this.progress=progress;
+        //this.todoDate=todoDate;
     }
     public Long getId() {
         return id;
@@ -97,4 +98,7 @@ public class Todo {
     public void setProgress(Integer progress) {
         this.progress = progress;
     }
+
+
+
 }

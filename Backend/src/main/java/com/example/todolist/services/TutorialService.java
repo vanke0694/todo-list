@@ -39,13 +39,13 @@ public class TutorialService {
         return tutorialRepository.findAll();
     }
 
-    public List<Tutorial> findByTitleContaining(String title){
-        return tutorialRepository.findByTitleContaining(title);
-    }
+//    public List<Tutorial> findByTitleContaining(String title){
+//        return tutorialRepository.findByTitleContaining(title);
+//    }
 
-    public List<Tutorial> findByPublished(){
-        return tutorialRepository.findByPublished(true);
-    }
+//    public List<Tutorial> findByPublished(){
+//        return tutorialRepository.findByPublished(true);
+//    }
 }
 
 

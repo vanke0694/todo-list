@@ -7,7 +7,7 @@ class DataTable extends Component {
   deleteItem = id => {
     let confirmDelete = window.confirm('Delete item forever?')
     if(confirmDelete){
-      fetch('http://localhost:8080/todo/delete/', {
+      fetch('http://localhost:8080/todo/delete/'+ id , {
       method: 'delete',
       headers: {
         'Content-Type': 'application/json'
@@ -33,15 +33,13 @@ class DataTable extends Component {
           <th scope="row">{item.id}</th>
           <td>{item.description}</td>
           <td>{item.progress}</td>
-          <td>{item.title}</td>
-          <td>{item.create_date}</td>
-          <td>{item.last_modified_date}</td>
-          <td>{item.todo_date}</td>
+          <td>{item.title}</td>        
+          {/* <td>{item.todo_date}</td> */}
           <td>
             <div style={{width:"110px"}}>
               <ModalForm buttonLabel="Edit" item={item} updateState={this.props.updateState}/>
               {' '}
-              <Button color="danger" onClick={() => this.deleteItem(item.id)}>Del</Button>
+              <Button color="danger" onClick={() => this.deleteItem(item.id)}>Delete</Button>
             </div>
           </td>
         </tr>
@@ -55,10 +53,8 @@ class DataTable extends Component {
             <th>ID</th>
             <th>Description</th>
             <th>Progress</th>
-            <th>Title</th>
-            <th>Create Date</th>
-            <th>Last Modified Date</th>
-            <th>Todo Date</th>      
+            <th>Title</th>         
+            {/* <th>Todo Date</th>       */}
             <th>Actions</th>
           </tr>
         </thead>
